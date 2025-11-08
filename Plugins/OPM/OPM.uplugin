@@ -1,0 +1,31 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.0",
+	"FriendlyName": "Object Placement Manager",
+	"Description": "A powerful yet simple editor utility for batch object placement, alignment, and organization. Streamline your level design workflow with intuitive tools for placing, arranging, and managing actors in your scenes.",
+	"Category": "Editor",
+	"CreatedBy": "Mittenzx",
+	"CreatedByURL": "https://github.com/Mittenzx/OPM",
+	"DocsURL": "https://github.com/Mittenzx/OPM/wiki",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/Mittenzx/OPM/issues",
+	"EngineVersion": "5.3.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "OPM",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Mac",
+				"Linux"
+			]
+		}
+	],
+	"Plugins": []
+}
