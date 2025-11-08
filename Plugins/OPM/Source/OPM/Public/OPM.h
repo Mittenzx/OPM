@@ -16,6 +16,7 @@ public:
 
 // Include public headers for easy access
 #include "OPMTypes.h"
+#include "OPMTransactionUtils.h"
 #include "PlacementUtilities.h"
 #include "AlignmentUtilities.h"
 #include "NamingUtilities.h"

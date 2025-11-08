@@ -3,6 +3,8 @@
 #include "AlignmentUtilities.h"
 #include "Components/PrimitiveComponent.h"
 
+#define LOCTEXT_NAMESPACE "OPMAlignmentUtilities"
+
 void UOPM_AlignmentUtilities::AlignActors(
 	TArray<AActor*> Actors,
 	EAlignmentType Type,
@@ -377,3 +379,5 @@ void UOPM_AlignmentUtilities::SnapActorsToGrid(TArray<AActor*> Actors, float Gri
 		SnapActorToGrid(Actor, GridSize);
 	}
 }
+
+#undef LOCTEXT_NAMESPACE
