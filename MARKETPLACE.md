@@ -129,10 +129,11 @@ $19.99 - $29.99 (Recommended: $24.99)
 - Create promotional materials
 - Build social media presence
 - Reach out to UE community influencers
+- Follow [FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md) strategy
 
 **Phase 2: Launch (Week 3)**
 - Release with introductory discount (20% off)
-- Post on Epic Developer Forums
+- Post on Epic Developer Forums (see engagement templates)
 - Share on Reddit (r/unrealengine, r/gamedev)
 - Tweet with #UE5 #UnrealEngine hashtags
 - YouTube tutorial series
@@ -142,7 +143,7 @@ $19.99 - $29.99 (Recommended: $24.99)
 - Regular updates with new features
 - Build case studies and testimonials
 - Create advanced tutorial content
-- Engage with community
+- Engage with community (follow engagement guide)
 
 ### Content Marketing
 

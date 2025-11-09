@@ -75,3 +75,21 @@ Plugins/*/Build/
 # Content that should be tracked
 !Content/
 !Plugins/*/Content/
+
+# Forum Engagement Bot
+scripts/.env
+scripts/forum_bot_config.json
+scripts/engagement_data.json
+scripts/forum_bot.log
+scripts/__pycache__/
+scripts/*.pyc
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/

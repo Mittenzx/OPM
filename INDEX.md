@@ -47,6 +47,7 @@
 | [MARKETPLACE.md](MARKETPLACE.md) | Marketing strategy | Business analysis | 30 min |
 | [ROADMAP.md](ROADMAP.md) | Product roadmap | Future planning | 20 min |
 | [SUMMARY.md](SUMMARY.md) | Business case & projections | Decision makers | 10 min |
+| [FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md) | Community engagement guide | Marketing & outreach | 40 min |
 
 ### Reference Materials
 
@@ -83,6 +84,9 @@
 #### ...how to contribute
 → [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guide
 
+#### ...how to promote OPM in the community
+→ [FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md) - Community engagement guide
+
 ### "I need to..."
 
 #### ...install and use OPM
@@ -112,7 +116,7 @@
 
 ## 📊 Documentation Statistics
 
-**Total Documentation:** ~80,000 words across 13 files
+**Total Documentation:** ~90,000 words across 14 files
 
 ### Breakdown by Category
 
@@ -120,7 +124,7 @@
 |----------|-------|-------|--------------|
 | User Guides | 3 | ~30,000 | 2-3 hours |
 | Developer Docs | 3 | ~28,000 | 2-3 hours |
-| Business Docs | 3 | ~28,000 | 1-2 hours |
+| Business Docs | 4 | ~38,000 | 2-3 hours |
 | Reference | 4 | ~14,000 | As needed |
 
 ### Reading Paths
@@ -169,6 +173,7 @@ SUMMARY.md → README.md → QUICKSTART.md
 **Business Documents:**
 - [MARKETPLACE.md](MARKETPLACE.md) - Marketing strategy
 - [ROADMAP.md](ROADMAP.md) - Product roadmap
+- [FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md) - Community outreach
 
 ### Plugin Files
 
@@ -359,6 +364,7 @@ All documents are version controlled via Git. Check commit history for:
 | How to contribute? | CONTRIBUTING.md | 15 min |
 | Business case? | MARKETPLACE.md | 30 min |
 | Future plans? | ROADMAP.md | 20 min |
+| Community outreach? | FORUM_ENGAGEMENT.md | 40 min |
 | Navigation? | PROJECT_STRUCTURE.md | 20 min |
 
 ---

@@ -1,0 +1,129 @@
+{
+  "project_name": "Object Placement Manager (OPM)",
+  "github_url": "https://github.com/Mittenzx/OPM",
+  "description": "An open-source Unreal Engine 5 plugin for efficient level design",
+  
+  "platforms": {
+    "epic_forums": {
+      "enabled": true,
+      "base_url": "https://dev.epicgames.com/community/",
+      "categories": [
+        "Unreal Engine / General Discussion",
+        "Unreal Engine / Level Design",
+        "Unreal Engine / Editor & Plugins",
+        "Unreal Engine / Workflow"
+      ],
+      "username": "your_username",
+      "notes": "Manual posting only - no API available"
+    },
+    "reddit": {
+      "enabled": true,
+      "subreddits": [
+        "unrealengine",
+        "gamedev",
+        "leveldesign",
+        "IndieGaming"
+      ],
+      "username": "your_reddit_username",
+      "notes": "Follow each subreddit's self-promotion rules"
+    },
+    "discord": {
+      "enabled": true,
+      "servers": [
+        {
+          "name": "Unreal Slackers",
+          "url": "https://unrealslackers.org/",
+          "channels": ["general", "level-design", "plugins", "showcase"]
+        }
+      ],
+      "username": "your_discord_username",
+      "notes": "Be helpful first, promotional second"
+    },
+    "twitter": {
+      "enabled": true,
+      "handle": "@your_twitter_handle",
+      "hashtags": [
+        "#UnrealEngine",
+        "#UE5",
+        "#GameDev",
+        "#LevelDesign",
+        "#IndieGameDev",
+        "#UnrealEnginePlugins"
+      ],
+      "notes": "Keep posts under 280 characters, use media"
+    }
+  },
+  
+  "posting_schedule": {
+    "frequency_days": 3,
+    "preferred_times_utc": ["09:00", "14:00", "18:00"],
+    "timezone": "UTC",
+    "notes": "Post during peak hours for target audience (US/EU daytime)"
+  },
+  
+  "engagement_rules": {
+    "max_posts_per_day": 2,
+    "max_posts_per_week": 7,
+    "min_response_time_hours": 1,
+    "max_response_time_hours": 24,
+    "quality_over_quantity": true,
+    "notes": "Always respond to comments within 24 hours"
+  },
+  
+  "content_strategy": {
+    "value_to_promotion_ratio": "80/20",
+    "post_types": {
+      "introduction": {
+        "frequency": "once",
+        "platforms": ["epic_forums", "reddit"]
+      },
+      "feature_showcase": {
+        "frequency": "weekly",
+        "platforms": ["all"]
+      },
+      "feedback_request": {
+        "frequency": "bi-weekly",
+        "platforms": ["epic_forums", "discord"]
+      },
+      "development_update": {
+        "frequency": "weekly",
+        "platforms": ["twitter", "reddit"]
+      },
+      "problem_solving": {
+        "frequency": "as_needed",
+        "platforms": ["epic_forums", "reddit"]
+      }
+    }
+  },
+  
+  "analytics": {
+    "track_views": true,
+    "track_replies": true,
+    "track_upvotes": true,
+    "track_github_traffic": true,
+    "report_frequency_days": 7,
+    "notes": "Review metrics weekly to adjust strategy"
+  },
+  
+  "api_keys": {
+    "notes": "Store actual credentials in .env file, not here",
+    "reddit": {
+      "client_id": "see_.env",
+      "client_secret": "see_.env"
+    },
+    "discord": {
+      "bot_token": "see_.env"
+    },
+    "twitter": {
+      "api_key": "see_.env",
+      "api_secret": "see_.env"
+    }
+  },
+  
+  "safety": {
+    "dry_run_mode": true,
+    "require_manual_approval": true,
+    "backup_before_post": true,
+    "notes": "Keep dry_run_mode true until you've tested thoroughly"
+  }
+}
