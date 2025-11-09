@@ -141,7 +141,7 @@ OPM/
    - Additional products
    - Brand building
 
-See [MARKETPLACE.md](MARKETPLACE.md) for detailed strategy.
+See [MARKETPLACE.md](MARKETPLACE.md) for detailed strategy and [FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md) for community outreach guidelines.
 
 ## 🎓 Documentation
 

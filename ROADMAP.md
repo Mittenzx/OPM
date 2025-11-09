@@ -278,7 +278,8 @@ Long-term differentiators:
 
 ### Immediate (0-3 months)
 - [x] GitHub repository
-- [ ] Epic Developer Forum presence
+- [x] Forum engagement strategy ([FORUM_ENGAGEMENT.md](FORUM_ENGAGEMENT.md))
+- [ ] Epic Developer Forum presence (see engagement guide)
 - [ ] Discord server (if demand exists)
 - [ ] Twitter/X account
 - [ ] Tutorial video series
