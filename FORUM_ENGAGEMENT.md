@@ -4,6 +4,16 @@
 
 This guide provides strategies, templates, and best practices for engaging with the Unreal Engine community to promote OPM and gather valuable feedback.
 
+### 🤖 Automation Available
+
+To help streamline community engagement, we've created a **Forum Engagement Bot** that automates:
+- Post generation from templates
+- Content scheduling
+- Engagement tracking
+- Analytics reporting
+
+**See:** [scripts/README.md](scripts/README.md) for bot documentation and usage instructions.
+
 ## 🎯 Engagement Goals
 
 ### Primary Objectives
