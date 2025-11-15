@@ -33,7 +33,8 @@ public class OPM : ModuleRules
 				"Blutility",
 				"UMG",
 				"UMGEditor",
-				"EditorScriptingUtilities"
+				"EditorScriptingUtilities",
+				"Landscape"
 			}
 			);
 			

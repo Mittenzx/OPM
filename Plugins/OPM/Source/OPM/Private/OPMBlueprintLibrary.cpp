@@ -7,8 +7,13 @@
 #include "ActorReplacementUtilities.h"
 #include "OrganizationUtilities.h"
 #include "OPMTransactionUtils.h"
+#include "AIPlacementUtilities.h"
+#include "LandscapeIntegrationUtilities.h"
+#include "SplineUtilities.h"
 #include "Engine/World.h"
 #include "Editor.h"
+#include "Landscape.h"
+#include "Components/SplineComponent.h"
 
 #define LOCTEXT_NAMESPACE "OPMBlueprintLibrary"
 
@@ -277,6 +282,180 @@ FBox UOPMBlueprintLibrary::GetActorsBounds(const TArray<AActor*>& Actors)
 FVector UOPMBlueprintLibrary::GetActorsCenter(const TArray<AActor*>& Actors)
 {
 	return UOPM_AlignmentUtilities::GetActorsCenter(Actors);
+}
+
+// ==================== AI-Assisted Placement (v2.0) ====================
+
+EAIPatternType UOPMBlueprintLibrary::DetectPlacementPattern(const TArray<AActor*>& Actors)
+{
+	return UOPM_AIPlacementUtilities::DetectPlacementPattern(Actors);
+}
+
+int32 UOPMBlueprintLibrary::GenerateSmartSuggestions(
+	const TArray<AActor*>& ExistingActors,
+	const FAIPlacementSettings& Settings,
+	TArray<FTransform>& SuggestedTransforms)
+{
+	return UOPM_AIPlacementUtilities::GenerateSmartSuggestions(ExistingActors, Settings, SuggestedTransforms);
+}
+
+TArray<FTransform> UOPMBlueprintLibrary::OptimizeActorPlacement(
+	const TArray<AActor*>& Actors,
+	const FAIPlacementSettings& Settings)
+{
+	return UOPM_AIPlacementUtilities::OptimizeActorPlacement(Actors, Settings);
+}
+
+TArray<FTransform> UOPMBlueprintLibrary::GenerateOrganicPattern(
+	const FBox& BoundsBox,
+	int32 Count,
+	const FAIPlacementSettings& Settings)
+{
+	return UOPM_AIPlacementUtilities::GenerateOrganicPattern(BoundsBox, Count, Settings);
+}
+
+float UOPMBlueprintLibrary::EvaluatePlacementQuality(const TArray<AActor*>& Actors)
+{
+	return UOPM_AIPlacementUtilities::EvaluatePlacementQuality(Actors);
+}
+
+// ==================== Landscape Integration (v2.0) ====================
+
+TArray<AActor*> UOPMBlueprintLibrary::PlaceActorsOnLandscape(
+	UObject* WorldContextObject,
+	UClass* ActorClass,
+	const TArray<FTransform>& Transforms,
+	ALandscape* Landscape,
+	const FLandscapePlacementSettings& Settings)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return TArray<AActor*>();
+	}
+
+	return UOPM_LandscapeIntegrationUtilities::PlaceActorsOnLandscape(ActorClass, Transforms, Landscape, Settings, World);
+}
+
+bool UOPMBlueprintLibrary::SampleLandscapeHeight(
+	ALandscape* Landscape,
+	const FVector& Location,
+	float& OutHeight)
+{
+	return UOPM_LandscapeIntegrationUtilities::SampleLandscapeHeight(Landscape, Location, OutHeight);
+}
+
+float UOPMBlueprintLibrary::CalculateSlopeAngle(
+	ALandscape* Landscape,
+	const FVector& Location)
+{
+	return UOPM_LandscapeIntegrationUtilities::CalculateSlopeAngle(Landscape, Location);
+}
+
+TArray<FTransform> UOPMBlueprintLibrary::DistributeByBiome(
+	const FBox& BoundsBox,
+	int32 Count,
+	EBiomeType BiomeType,
+	ALandscape* Landscape)
+{
+	return UOPM_LandscapeIntegrationUtilities::DistributeByBiome(BoundsBox, Count, BiomeType, Landscape);
+}
+
+ALandscape* UOPMBlueprintLibrary::FindLandscapeInWorld(UObject* WorldContextObject)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return nullptr;
+	}
+
+	return UOPM_LandscapeIntegrationUtilities::FindLandscapeInWorld(World);
+}
+
+// ==================== Spline-Based Tools (v2.0) ====================
+
+TArray<AActor*> UOPMBlueprintLibrary::PlaceActorsAlongSpline(
+	UObject* WorldContextObject,
+	UClass* ActorClass,
+	USplineComponent* SplineComponent,
+	const FSplinePlacementSettings& Settings)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return TArray<AActor*>();
+	}
+
+	return UOPM_SplineUtilities::PlaceActorsAlongSpline(ActorClass, SplineComponent, Settings, World);
+}
+
+TArray<FTransform> UOPMBlueprintLibrary::GenerateTransformsAlongSpline(
+	USplineComponent* SplineComponent,
+	const FSplinePlacementSettings& Settings)
+{
+	return UOPM_SplineUtilities::GenerateTransformsAlongSpline(SplineComponent, Settings);
+}
+
+TArray<AActor*> UOPMBlueprintLibrary::GenerateRoadAlongSpline(
+	UObject* WorldContextObject,
+	USplineComponent* SplineComponent,
+	UClass* RoadActorClass,
+	const TArray<UClass*>& PropActorClasses,
+	float PropSpacing)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return TArray<AActor*>();
+	}
+
+	return UOPM_SplineUtilities::GenerateRoadAlongSpline(SplineComponent, RoadActorClass, PropActorClasses, PropSpacing, World);
+}
+
+TArray<AActor*> UOPMBlueprintLibrary::GenerateFenceAlongSpline(
+	UObject* WorldContextObject,
+	USplineComponent* SplineComponent,
+	UClass* PostActorClass,
+	UClass* PanelActorClass,
+	float PostSpacing)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return TArray<AActor*>();
+	}
+
+	return UOPM_SplineUtilities::GenerateFenceAlongSpline(SplineComponent, PostActorClass, PanelActorClass, PostSpacing, World);
+}
+
+TArray<AActor*> UOPMBlueprintLibrary::GenerateCableRoutingAlongSpline(
+	UObject* WorldContextObject,
+	USplineComponent* SplineComponent,
+	UClass* CableActorClass,
+	UClass* SupportsActorClass,
+	float SupportSpacing,
+	float SagAmount)
+{
+	UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull);
+	if (!World)
+	{
+		return TArray<AActor*>();
+	}
+
+	return UOPM_SplineUtilities::GenerateCableRoutingAlongSpline(SplineComponent, CableActorClass, SupportsActorClass, SupportSpacing, SagAmount, World);
+}
+
+float UOPMBlueprintLibrary::GetSplineLength(USplineComponent* SplineComponent)
+{
+	return UOPM_SplineUtilities::GetSplineLength(SplineComponent);
+}
+
+TArray<float> UOPMBlueprintLibrary::GetAdaptiveDistances(
+	USplineComponent* SplineComponent,
+	float MinSpacing,
+	float MaxSpacing)
+{
+	return UOPM_SplineUtilities::GetAdaptiveDistances(SplineComponent, MinSpacing, MaxSpacing);
 }
 
 #undef LOCTEXT_NAMESPACE

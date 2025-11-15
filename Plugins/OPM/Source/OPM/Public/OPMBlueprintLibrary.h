@@ -235,4 +235,159 @@ public:
 	 */
 	UFUNCTION(BlueprintPure, Category = "OPM|Utility")
 	static FVector GetActorsCenter(const TArray<AActor*>& Actors);
+
+	// ==================== AI-Assisted Placement (v2.0) ====================
+
+	/**
+	 * Detect placement pattern from existing actors
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|AI Placement")
+	static EAIPatternType DetectPlacementPattern(const TArray<AActor*>& Actors);
+
+	/**
+	 * Generate smart placement suggestions based on existing actors
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|AI Placement")
+	static int32 GenerateSmartSuggestions(
+		const TArray<AActor*>& ExistingActors,
+		const FAIPlacementSettings& Settings,
+		TArray<FTransform>& SuggestedTransforms);
+
+	/**
+	 * Optimize actor placement based on optimization goal
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|AI Placement")
+	static TArray<FTransform> OptimizeActorPlacement(
+		const TArray<AActor*>& Actors,
+		const FAIPlacementSettings& Settings);
+
+	/**
+	 * Generate organic-looking placement pattern
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|AI Placement")
+	static TArray<FTransform> GenerateOrganicPattern(
+		const FBox& BoundsBox,
+		int32 Count,
+		const FAIPlacementSettings& Settings);
+
+	/**
+	 * Evaluate placement quality score
+	 */
+	UFUNCTION(BlueprintPure, Category = "OPM|AI Placement")
+	static float EvaluatePlacementQuality(const TArray<AActor*>& Actors);
+
+	// ==================== Landscape Integration (v2.0) ====================
+
+	/**
+	 * Place actors on landscape with terrain-aware positioning
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Landscape", meta = (WorldContext = "WorldContextObject"))
+	static TArray<AActor*> PlaceActorsOnLandscape(
+		UObject* WorldContextObject,
+		UClass* ActorClass,
+		const TArray<FTransform>& Transforms,
+		class ALandscape* Landscape,
+		const FLandscapePlacementSettings& Settings);
+
+	/**
+	 * Sample landscape height at a given location
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Landscape")
+	static bool SampleLandscapeHeight(
+		class ALandscape* Landscape,
+		const FVector& Location,
+		float& OutHeight);
+
+	/**
+	 * Calculate slope angle at a landscape location
+	 */
+	UFUNCTION(BlueprintPure, Category = "OPM|Landscape")
+	static float CalculateSlopeAngle(
+		class ALandscape* Landscape,
+		const FVector& Location);
+
+	/**
+	 * Distribute actors based on biome type
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Landscape")
+	static TArray<FTransform> DistributeByBiome(
+		const FBox& BoundsBox,
+		int32 Count,
+		EBiomeType BiomeType,
+		class ALandscape* Landscape);
+
+	/**
+	 * Find landscape actor in world
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Landscape", meta = (WorldContext = "WorldContextObject"))
+	static class ALandscape* FindLandscapeInWorld(UObject* WorldContextObject);
+
+	// ==================== Spline-Based Tools (v2.0) ====================
+
+	/**
+	 * Place actors along a spline path
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline", meta = (WorldContext = "WorldContextObject"))
+	static TArray<AActor*> PlaceActorsAlongSpline(
+		UObject* WorldContextObject,
+		UClass* ActorClass,
+		class USplineComponent* SplineComponent,
+		const FSplinePlacementSettings& Settings);
+
+	/**
+	 * Generate transforms along a spline
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline")
+	static TArray<FTransform> GenerateTransformsAlongSpline(
+		class USplineComponent* SplineComponent,
+		const FSplinePlacementSettings& Settings);
+
+	/**
+	 * Generate road with props along spline
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline", meta = (WorldContext = "WorldContextObject"))
+	static TArray<AActor*> GenerateRoadAlongSpline(
+		UObject* WorldContextObject,
+		class USplineComponent* SplineComponent,
+		UClass* RoadActorClass,
+		const TArray<UClass*>& PropActorClasses,
+		float PropSpacing);
+
+	/**
+	 * Generate fence along spline
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline", meta = (WorldContext = "WorldContextObject"))
+	static TArray<AActor*> GenerateFenceAlongSpline(
+		UObject* WorldContextObject,
+		class USplineComponent* SplineComponent,
+		UClass* PostActorClass,
+		UClass* PanelActorClass,
+		float PostSpacing);
+
+	/**
+	 * Generate cable routing along spline
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline", meta = (WorldContext = "WorldContextObject"))
+	static TArray<AActor*> GenerateCableRoutingAlongSpline(
+		UObject* WorldContextObject,
+		class USplineComponent* SplineComponent,
+		UClass* CableActorClass,
+		UClass* SupportsActorClass,
+		float SupportSpacing,
+		float SagAmount);
+
+	/**
+	 * Get spline length
+	 */
+	UFUNCTION(BlueprintPure, Category = "OPM|Spline")
+	static float GetSplineLength(class USplineComponent* SplineComponent);
+
+	/**
+	 * Get adaptive distances based on spline curvature
+	 */
+	UFUNCTION(BlueprintCallable, Category = "OPM|Spline")
+	static TArray<float> GetAdaptiveDistances(
+		class USplineComponent* SplineComponent,
+		float MinSpacing,
+		float MaxSpacing);
 };
