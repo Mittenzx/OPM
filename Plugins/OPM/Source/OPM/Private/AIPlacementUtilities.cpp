@@ -165,7 +165,8 @@ TArray<FTransform> UOPM_AIPlacementUtilities::OptimizeActorPlacement(
 			for (int32 i = 0; i < OptimizedTransforms.Num(); ++i)
 			{
 				FVector Direction = (OptimizedTransforms[i].GetLocation() - Centroid).GetSafeNormal();
-				OptimizedTransforms[i].SetLocation(Centroid + Direction * 1.2f);
+				float Distance = (OptimizedTransforms[i].GetLocation() - Centroid).Size();
+				OptimizedTransforms[i].SetLocation(Centroid + Direction * Distance * 1.2f);
 			}
 			break;
 		}

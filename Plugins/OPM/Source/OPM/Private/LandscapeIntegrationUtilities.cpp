@@ -70,10 +70,10 @@ bool UOPM_LandscapeIntegrationUtilities::SampleLandscapeHeight(
 	}
 
 	// Query landscape height at location
-	FVector HitLocation;
-	if (LandscapeInfo->GetLandscapeProxy(Location, false))
+	ALandscapeProxy* Proxy = LandscapeInfo->GetLandscapeProxy(Location, false);
+	if (Proxy)
 	{
-		OutHeight = LandscapeInfo->GetLandscapeProxy(Location, false)->GetHeightAtLocation(Location);
+		OutHeight = Proxy->GetHeightAtLocation(Location);
 		return true;
 	}
 

@@ -192,7 +192,7 @@ Comprehensive documentation has been created for all Version 2.0 features:
 | **Lines of C++ Code** | 45,000 | 49,000 | 94,000 |
 | **Source Files** | 18 | 7 | 25 |
 | **Utility Classes** | 6 | 3 | 9 |
-| **Blueprint Functions** | 35 | 20 | 55 |
+| **Blueprint Functions** | 35 | 17 | 52 |
 | **Enums** | 4 | 6 | 10 |
 | **Structs** | 4 | 3 | 7 |
 
@@ -210,10 +210,10 @@ Comprehensive documentation has been created for all Version 2.0 features:
 
 | Feature Set | Sub-Features | Functions |
 |-------------|--------------|-----------|
-| AI Placement | 8 | 8 |
+| AI Placement | 8 | 5 |
 | Landscape | 10 | 5 |
-| Spline Tools | 12 | 7 |
-| **Total** | **30** | **20** |
+| Spline | 12 | 7 |
+| **Total** | **30** | **17** |
 
 ---
 

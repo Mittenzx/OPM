@@ -10,7 +10,7 @@
  * Utility class for AI-assisted placement operations
  * Provides machine learning-based pattern recognition, smart suggestions, and automatic optimization
  */
-class UOPM_AIPlacementUtilities
+class OPM_API UOPM_AIPlacementUtilities
 {
 public:
 	/**

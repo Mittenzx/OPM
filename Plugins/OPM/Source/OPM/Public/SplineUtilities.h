@@ -11,7 +11,7 @@
  * Utility class for spline-based placement operations
  * Provides path-following placement, road/fence generation, and cable/pipe routing
  */
-class UOPM_SplineUtilities
+class OPM_API UOPM_SplineUtilities
 {
 public:
 	/**

@@ -11,7 +11,7 @@
  * Utility class for landscape-aware placement operations
  * Provides terrain-aware placement, foliage integration, and biome-based distribution
  */
-class UOPM_LandscapeIntegrationUtilities
+class OPM_API UOPM_LandscapeIntegrationUtilities
 {
 public:
 	/**
